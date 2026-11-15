@@ -7,6 +7,7 @@ import Category from './pages/Category'
 import Deals from './pages/Deals'
 import Delivery from './pages/Delivery'
 import New from './pages/New'
+import Body from './components/Body'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/delivery' element={<Delivery/>}/>
         <Route path='/New' element={<New/>}/>
       </Routes>
+      <Body/>
     </div>
   )
 }

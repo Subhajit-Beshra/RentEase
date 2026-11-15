@@ -1,30 +1,38 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Search } from "lucide-react"
-import { useClerk } from '@clerk/react';
-import { UserButton } from '@clerk/react';
-import { Show } from '@clerk/react';
+import { useClerk, UserButton, Show } from '@clerk/react';
+import logo from "../../public/Logo.png";
 
 const Navbar = () => {
 
   const { openSignIn } = useClerk();
 
   return (
-    <div className='flex flex-row justify-between py-5 px-10 text-white outline-0'>
-      <div className='flex items-center gap-5 text-xl'>
+    <div className='relative flex flex-row justify-between items-center py-5 px-10 text-white'>
+
+      {/* Logo */}
+      <Link to='/' className='flex items-center'>
+        <img src={logo} alt='' className='w-14' />
+        <h1 className='text-3xl font-bold'>RentEase</h1>
+      </Link>
+
+      {/* Center Navigation Links */}
+      <div className='absolute left-1/2 -translate-x-1/2 flex items-center gap-5 outline-0'>
         <Link to='/category'>Category</Link>
         <Link to='/deals'>Deals</Link>
         <Link to='/delivery'>Delivery</Link>
         <Link to='/new'>New</Link>
       </div>
-      <div>
-        <Link to='/'><h1 className='text-3xl font-bold'>RentEase</h1></Link>
-      </div>
+
+      {/* Search and Authentication */}
       <div className='flex items-center gap-4'>
         <div className='bg-white rounded-full text-black flex flex-row items-center p-2'>
           <Search stroke='gray' />
           <input type="text" placeholder='Search' className='outline-0' />
         </div>
+
         <Show when="signed-out">
           <button
             onClick={() => openSignIn()}
@@ -33,6 +41,7 @@ const Navbar = () => {
             Sign in
           </button>
         </Show>
+
         <Show when="signed-in">
           <UserButton appearance={{
             elements: {
@@ -41,10 +50,9 @@ const Navbar = () => {
           }} />
         </Show>
       </div>
+
     </div>
   )
 }
 
 export default Navbar
-
-

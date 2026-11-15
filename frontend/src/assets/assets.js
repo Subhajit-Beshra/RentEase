@@ -8,13 +8,13 @@ import book6 from "../assets/Bookself/book6.webp";
 import book7 from "../assets/Bookself/book7.webp";
 
 // Chair Images
-import Chair1 from "../assets/Chair/Chair1.webp";
-import Chair2 from "../assets/Chair/Chair2.webp";
-import Chair3 from "../assets/Chair/Chair3.webp";
-import Chair4 from "../assets/Chair/Chair4.webp";
-import Chair5 from "../assets/Chair/Chair5.webp";
-import Chair6 from "../assets/Chair/Chair6.webp";
-import Chair7 from "../assets/Chair/Chair7.webp";
+import Chair1 from "../assets/Chairs/Chair1.webp";
+import Chair2 from "../assets/Chairs/Chair2.webp";
+import Chair3 from "../assets/Chairs/Chair3.webp";
+import Chair4 from "../assets/Chairs/Chair4.webp";
+import Chair5 from "../assets/Chairs/Chair5.webp";
+import Chair6 from "../assets/Chairs/Chair6.webp";
+import Chair7 from "../assets/Chairs/Chair7.webp";
 
 // Drawer Images
 import drawer1 from "../assets/Drawer/drawer1.webp";
@@ -26,12 +26,13 @@ import drawer6 from "../assets/Drawer/drawer6.webp";
 
 // Mattress Images
 import mattress from "../assets/Mattress/Mattress.webp";
-import mattress1 from "../assets/Mattress/Mattress2.webp";
-import mattress2 from "../assets/Mattress/Mattress3.webp";
-import mattress3 from "../assets/Mattress/Mattress4.webp";
-import mattress4 from "../assets/Mattress/Mattress5.webp";
-import mattress5 from "../assets/Mattress/Mattress6.webp";
-import mattress6 from "../assets/Mattress/Mattress7.webp";
+import mattress1 from "../assets/Mattress/Mattress1.webp";
+import mattress2 from "../assets/Mattress/Mattress2.webp";
+import mattress3 from "../assets/Mattress/Mattress3.webp";
+import mattress4 from "../assets/Mattress/Mattress4.webp";
+import mattress5 from "../assets/Mattress/Mattress5.webp";
+import mattress6 from "../assets/Mattress/Mattress6.webp";
+
 
 // TV Images
 import TV1 from "../assets/TV/TV1.webp";
@@ -47,6 +48,15 @@ import ward3 from "../assets/Wardrobe/ward3.webp";
 import ward4 from "../assets/Wardrobe/ward4.webp";
 import ward5 from "../assets/Wardrobe/ward5.webp";
 import ward6 from "../assets/Wardrobe/ward6.webp";
+
+// Icons
+import returns from "../assets/icons/returns.svg";
+import shopping from "../assets/icons/shopping.svg";
+import support from "../assets/icons/support.svg";
+import truck from "../assets/icons/truck.svg";
+
+
+export {returns, shopping, support, truck}
 
 
 const products = [
@@ -406,3 +416,5 @@ const products = [
 ];
 
 export default products;
+
+
