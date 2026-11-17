@@ -2,6 +2,7 @@ import React from 'react';
 import products, { returns, shopping, support, truck } from "../assets/assets.js";
 import { furniture, lamp, desk, tool } from "../../public/public.js"
 import Testimonals from './Testimonals.jsx';
+import Footer from './Footer.jsx';
 
 
 
@@ -144,6 +145,9 @@ const Body = () => {
             </div>
             <div className='mt-50'>
                 <Testimonals/>
+            </div>
+            <div className='mt-50'>
+                <Footer/>
             </div>
         </div>
     )

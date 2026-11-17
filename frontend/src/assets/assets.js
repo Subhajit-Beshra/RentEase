@@ -55,8 +55,14 @@ import shopping from "../assets/icons/shopping.svg";
 import support from "../assets/icons/support.svg";
 import truck from "../assets/icons/truck.svg";
 
+// Testimonials
 
-export {returns, shopping, support, truck}
+import person1 from "../assets/testimonials/person1.jpg";
+import person2 from "../assets/testimonials/person2.jpg";
+import person3 from "../assets/testimonials/person3.jpg";
+
+
+export {returns, shopping, support, truck, person1, person2, person3};
 
 
 const products = [

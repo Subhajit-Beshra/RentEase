@@ -1,114 +1,138 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-const reviews = [
-  {
-    id: 1,
-    name: "Ananya Sharma",
-    role: "Interior Designer",
-    review:
-      "Beautiful furniture with excellent quality. It completely transformed my living room!",
-    rating: 5,
-    image: "https://i.pravatar.cc/150?img=47",
-  },
-  {
-    id: 2,
-    name: "Rahul Mehta",
-    role: "Customer",
-    review:
-      "Amazing shopping experience. The furniture looks premium and delivery was smooth.",
-    rating: 5,
-    image: "https://i.pravatar.cc/150?img=12",
-  },
-  {
-    id: 3,
-    name: "Priya Das",
-    role: "Customer",
-    review:
-      "I love the design and attention to detail. Definitely worth the price!",
-    rating: 5,
-    image: "https://i.pravatar.cc/150?img=44",
-  },
-];
+import React, { useState } from 'react'
+import { person1, person2, person3 } from '../assets/assets'
 
 const Testimonals = () => {
+
+  const testimonials = [
+    {
+      id: 1,
+      review: "RentEase made furnishing my new apartment so much easier than I expected. I found beautiful furniture that perfectly matched my style without spending a huge amount of money. The entire experience felt convenient, flexible, and stress-free. I would definitely recommend RentEase to anyone looking to create a comfortable home.",
+      image: person1,
+      name: "Jack Luthar"
+    },
+    {
+      id: 2,
+      review: "I recently moved into a new city and needed furniture without making a long-term investment. RentEase turned out to be the perfect solution. Their collection has so many modern and stylish options, making it easy to find something for every corner of my home. I absolutely love the flexibility!",
+      image: person2,
+      name: "Arther Bias"
+    },
+    {
+      id: 3,
+      review: "I always thought decorating a beautiful home required spending a fortune, but RentEase changed my perspective. I could choose furniture that looked premium while keeping my budget under control. My living room now feels more welcoming and comfortable. It's a wonderful option for anyone who values both style and affordability.",
+      image: person3,
+      name: "Laila Sen"
+    }
+  ]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const handleNext = () => {
+    setCurrentIndex((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    )
+  }
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    )
+  }
+
   return (
-    <section className="py-20 px-6 bg-[#f8f7f3]">
-      <div className="max-w-6xl mx-auto">
+    <div className='text-center py-16 px-5 overflow-hidden'>
 
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-400">
-            Testimonials
-          </p>
-          <h2 className="text-4xl font-bold mt-3">
-            What Our Customers Say
-          </h2>
-          <p className="text-gray-500 mt-4">
-            Real experiences from people who love our furniture.
-          </p>
-        </div>
+      <h1 className='text-4xl font-bold mb-3'>
+        Testimonials
+      </h1>
 
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
-          spaceBetween={25}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
+      <p className='text-gray-500 mb-12'>
+        What our happy customers say about RentEase.
+      </p>
+
+      {/* Slider container */}
+      <div className='max-w-3xl mx-auto overflow-hidden'>
+
+        {/* Slider track */}
+        <div
+          className='flex transition-transform duration-500 ease-in-out'
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`
           }}
-          pagination={{ clickable: true }}
-          navigation={true}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          className="pb-14"
         >
-          {reviews.map((review) => (
-            <SwiperSlide key={review.id}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm min-h-[280px]">
-                <div className="text-yellow-500 text-xl mb-5">
-                  {"★".repeat(review.rating)}
-                </div>
 
-                <p className="text-gray-600 leading-7">
-                  "{review.review}"
-                </p>
+          {testimonials.map((testimonial) => (
 
-                <div className="flex items-center gap-4 mt-8">
-                  <img
-                    src={review.image}
-                    alt={review.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+            <div
+              key={testimonial.id}
+              className='min-w-full flex flex-col items-center justify-center px-6'
+            >
 
-                  <div>
-                    <h3 className="font-semibold">
-                      {review.name}
-                    </h3>
-                    <p className="text-sm text-gray-400">
-                      {review.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+              <p className='text-gray-500 text-base md:text-lg leading-8 mb-8'>
+                "{testimonial.review}"
+              </p>
+
+              <img
+                src={testimonial.image}
+                className='w-20 h-20 rounded-full object-cover mb-3'
+                alt={testimonial.name}
+              />
+
+              <h3 className='font-semibold text-xl'>
+                {testimonial.name}
+              </h3>
+
+              <p className='text-gray-400 text-sm'>
+                Happy Customer
+              </p>
+
+            </div>
+
           ))}
-        </Swiper>
+
+        </div>
+      </div>
+
+      {/* Navigation buttons */}
+      <div className='flex justify-center items-center gap-6 mt-10'>
+
+        <button
+          onClick={handlePrev}
+          className='w-11 h-11 rounded-full border border-gray-300 hover:bg-black hover:text-white transition'
+        >
+          ←
+        </button>
+
+        <button
+          onClick={handleNext}
+          className='w-11 h-11 rounded-full border border-gray-300 hover:bg-black hover:text-white transition'
+        >
+          →
+        </button>
 
       </div>
-    </section>
-  );
-};
 
-export default Testimonals;
+      {/* Slider indicators */}
+      <div className='flex justify-center gap-2 mt-6'>
+
+        {testimonials.map((testimonial, index) => (
+
+          <button
+            key={testimonial.id}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              currentIndex === index
+                ? 'w-8 bg-black'
+                : 'w-2 bg-gray-300'
+            }`}
+          />
+
+        ))}
+
+      </div>
+
+    </div>
+  )
+}
+
+export default Testimonals
